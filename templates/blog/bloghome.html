@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %} {% block title %} Blog Home {% endblock %}
+{%block name %} Blog Post {% endblock %}
+{% block blogactive %}
+    active
+    {% endblock %}
+
+    {% block body %}
+    {% for post in allPosts %}
+        
+    <div class="container my-3">
+        <div class="card" style="width: 18rem;">
+            
+            <div class="card-body">
+                <h8 class="card-title ">Blog By -{{post.author}}</h8>
+                <h5 class="card-title ">{{post.title}}</h5>
+                <p class="card-text">{{post.content | truncatechars:100}}</p>
+                <a href="{{post.slug}}" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+    
